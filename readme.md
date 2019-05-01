@@ -1,6 +1,8 @@
-**Tweets App 
-By Laravel and Vue.js 
-**How to run 
-npm install 
-npm run dev 
+<h5>Tweets App </h5>
+<p> By Laravel and Vue.js </p>
+<p> How to run ? </p>
+<ul>
+   <li> npm install </li>
+   <li> npm run dev </li>
+</ul>    
 
