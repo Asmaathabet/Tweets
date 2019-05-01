@@ -27,6 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /*
+    ** Create an accessor for a profileLink
+     */
+
+     protected $appends = ['profileLink'];
 
     /**
      * The attributes that should be cast to native types.
@@ -41,9 +46,13 @@ class User extends Authenticatable
     {
        return $this->hasMany(Post::class);
     }
-    
+
     public function getRouteKeyName()
     {
        return 'name';
+    }
+     public function getProfileLinkAttribute()
+    {
+        return route('user.show', $this);
     }
 }
