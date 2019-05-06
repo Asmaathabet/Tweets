@@ -1,3 +1,4 @@
+
 <template>
     <div class="col-md-8 posts">
         <p v-if="!posts.length">No posts</p>
@@ -23,9 +24,14 @@ export default {
         }
     },
     mounted() {
+        axios.get('/posts').then((resp => {
+            this.posts = resp.data;
+        }));
         Event.$on('added_tweet', (post) => {
             this.posts.unshift(post);
         });
     }
 }
 </script>
+
+

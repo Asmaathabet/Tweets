@@ -1,5 +1,3 @@
-// FormComponent.vue
-
 <template>
     <div class="col-md-4">
         <form @submit.prevent="saveTweet">

@@ -1784,8 +1784,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1837,6 +1835,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1848,6 +1847,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    axios.get('/posts').then(function (resp) {
+      _this.posts = resp.data;
+    });
     _event_js__WEBPACK_IMPORTED_MODULE_0__["default"].$on('added_tweet', function (post) {
       _this.posts.unshift(post);
     });
@@ -36984,9 +36986,10 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "media-body" }, [
             _c("div", { staticClass: "mt-3" }, [
-              _c("a", { attrs: { href: "#" } }, [
+              _c("a", { attrs: { href: post.user.profileLink } }, [
                 _vm._v(_vm._s(post.user.name))
-              ])
+              ]),
+              _vm._v(" | " + _vm._s(post.createdDate) + "\n            ")
             ]),
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(post.body))])
@@ -49167,7 +49170,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('form-component', __webpack_require__(/*! ./components/FormComponent.vue */ "./resources/js/components/FormComponent.vue").default);
-Vue.component('timeline-component', __webpack_require__(/*! ./components/TimelineComponent.vue */ "./resources/js/components/TimelineComponent.vue"));
+Vue.component('timeline-component', __webpack_require__(/*! ./components/TimelineComponent.vue */ "./resources/js/components/TimelineComponent.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
